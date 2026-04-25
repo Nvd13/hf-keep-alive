@@ -1,14 +1,21 @@
-name: Ping HF Space
+name: Ping HF Spaces
 
 on:
   schedule:
-    - cron: '*/15 * * * *'   # runs every 15 minutes
-  workflow_dispatch:          # allows manual trigger for testing
+    - cron: '*/15 * * * *'   # every 15 minutes
+  workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Space health endpoint
+      - name: Keep all Spaces alive
         run: |
-          curl -s -o /dev/null -w "%{http_code}" https://nvd13-test1.hf.space/
+          URLS=(
+            "https://nvd13-test1.hf.space/"
+            "https://nvd13-gittobl1.hf.space/"
+          )
+          for url in "${URLS[@]}"; do
+            echo "Pinging $url"
+            curl -s -o /dev/null -w "%{http_code}" "$url"
+          done
