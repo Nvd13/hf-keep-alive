@@ -12,9 +12,10 @@ jobs:
       - name: Keep all Spaces alive
         run: |
           URLS=(
-            "https://nvd13-tgtobl1.hf.space/"
-            "https://nvd13-gittobl1.hf.space/"
-            "https://nvd13-tgtobl2.hf.space/"
+            "https://o7c1-tgtobl1.hf.space/"
+            "https://o7c1-gittobl1.hf.space/"
+            "https://o7c1-tgtobl2.hf.space/"
+            "https://o7c1-gmtobl1.hf.space/"
           )
           for url in "${URLS[@]}"; do
             echo "Pinging $url"
