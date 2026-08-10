@@ -2,7 +2,7 @@ name: Ping HF Spaces
 
 on:
   schedule:
-   - cron: '0 */1 * * *'   # every 8 hours (at 00:00, 08:00, 16:00 UTC)
+   - cron: '0 */1 * * *'   # every 1 hours (at 00:00, 08:00, 16:00 UTC)
   workflow_dispatch:
 
 jobs:
