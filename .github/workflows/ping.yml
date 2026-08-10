@@ -2,7 +2,7 @@ name: Ping HF Spaces
 
 on:
   schedule:
-   - cron: '0 */8 * * *'   # every 8 hours (at 00:00, 08:00, 16:00 UTC)
+   - cron: '0 */1 * * *'   # every 8 hours (at 00:00, 08:00, 16:00 UTC)
   workflow_dispatch:
 
 jobs:
@@ -12,11 +12,9 @@ jobs:
       - name: Keep all Spaces alive
         run: |
           URLS=(
-            "https://o7c1-tgtobl1.hf.space/"
-            "https://o7c1-gittobl1.hf.space/"
+            "https://o7c1-tgtobl1.hf.space/"            
             "https://o7c1-tgtobl2.hf.space/"
-            "https://o7c1-gmtobl1.hf.space/"
-          )
+            )
           for url in "${URLS[@]}"; do
             echo "Pinging $url"
             curl -s -o /dev/null -w "%{http_code}" "$url"
